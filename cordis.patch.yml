@@ -1,0 +1,9 @@
+# dsh-snapcompact bundle patch
+#
+# Mounts the snapcompact plugin as a Cordis row so the profile loader picks it
+# up automatically when the package is installed under the profile's
+# node_modules. The profile boot merges this file when it sees the
+# `dsh.bundle.patch` declaration in this package.json.
+- insert:
+    - id: snapcompact
+      name: 'dsh-snapcompact'
