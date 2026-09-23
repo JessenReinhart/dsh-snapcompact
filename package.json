@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "description": "Bitmap-frame context compression plugin for DSH: deterministic pixel-font visual archiving of conversation history",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JessenReinhart/dsh-snapcompact.git"
+  },
   "type": "module",
   "main": "lib/index.js",
   "exports": {
