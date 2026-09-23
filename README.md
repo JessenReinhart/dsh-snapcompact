@@ -30,6 +30,54 @@ Instead of asking an LLM to summarize discarded conversation history in lossy pr
   - Automatic step-pressure compaction on `agent/pre-step`
   - Automatic context-overflow recovery on `agent/request-error`
 
+## Installation
+
+### 1. Clone into DSH Profile
+
+Clone the repository into your active DSH profile's `packages/` directory (e.g. `desktop`):
+
+```bash
+# Windows PowerShell
+git clone https://github.com/JessenReinhart/dsh-snapcompact.git "$env:USERPROFILE\.dsh\profiles\desktop\packages\dsh-snapcompact"
+
+# macOS / Linux
+git clone https://github.com/JessenReinhart/dsh-snapcompact.git ~/.dsh/profiles/desktop/packages/dsh-snapcompact
+```
+
+### 2. Register Bundle in Profile Configuration
+
+Add `packages/dsh-snapcompact` to `dsh.profile.bundles` in your profile's `package.json` (e.g. `~/.dsh/profiles/desktop/package.json`):
+
+```json
+{
+  "dsh": {
+    "profile": {
+      "bundles": [
+        "packages/dsh-snapcompact"
+      ]
+    }
+  }
+}
+```
+
+The plugin automatically mounts its Cordis row via the bundled `cordis.patch.yml`.
+
+### 3. Native Rasterizer
+
+Snapcompact uses the high-performance native pixel-font rasterizer binary (`pi_natives.<platform>.node`).
+
+The plugin automatically discovers this binary from any of:
+- `~/.omp/natives/<version>/pi_natives.<platform>.node`
+- `~/.bun/install/cache/@oh-my-pi/pi-natives-*`
+- Environment variable override: `PI_NATIVES_PATH=/path/to/pi_natives.<platform>.node`
+
+### 4. Restart DSH
+
+Restart DeepSeek Harness to load the profile bundle. In chat, test with:
+```
+/snapcompact status
+```
+
 ## Usage
 
 ### Commands
